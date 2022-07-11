@@ -43,7 +43,6 @@ function populateList(items = [], ul) {
     })
     .join("");
 }
-//<i class="fa fa-trash-o"></i>
 function hid() {
   console.log("inside");
   if (hideAll.checked) {
@@ -57,13 +56,7 @@ function hid() {
 function del(e) {
   if (e.target.matches("button")) {
     const el = e.target;
-    //console.log(el);
-    Index = items.findIndex(
-      (obj) => obj.id == el.dataset.id
-      //console.log("dataset id", el.dataset.id);
-      //console.log("item id", obj.id);
-    );
-    //console.log(Index);
+    Index = items.findIndex((obj) => obj.id == el.dataset.id);
     items.splice(Index, 1);
     localStorage.setItem("items", JSON.stringify(items));
     populateList(items, ul);
@@ -74,7 +67,6 @@ function Search() {
   const filtered = items.filter((item) =>
     item.value.toLowerCase().includes(str.toLowerCase())
   );
-  //console.log("filtered", filtered);
   populateList(filtered, ul);
 }
 search.addEventListener("keyup", Search);
